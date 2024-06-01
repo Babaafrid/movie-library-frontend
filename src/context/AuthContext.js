@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.get('http://localhost:5000/api/users/profile', {
+      axios.get('https://movie-library-backend-jseh.onrender.com/api/users/profile', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', { username, password });
+      const response = await axios.post('https://movie-library-backend-jseh.onrender.com/api/users/login', { username, password });
       localStorage.setItem('token', response.data.token);
       setUser(response.data);
     } catch (error) {
@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
 
   const register = async (username, password, email) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/users/register', { username, password, email });
+      const response = await axios.post('https://movie-library-backend-jseh.onrender.com/api/users/register', { username, password, email });
       localStorage.setItem('token', response.data.token);
       setUser(response.data);
     } catch (error) {

@@ -14,7 +14,7 @@ const Playlist = () => {
       if (!user) return;
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/playlists",
+          "https://movie-library-backend-jseh.onrender.com/api/playlists",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -38,7 +38,7 @@ const Playlist = () => {
     if (!confirmed) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/playlists/${imdbID}`, {
+      await axios.delete(`https://movie-library-backend-jseh.onrender.com/api/playlists/${imdbID}`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

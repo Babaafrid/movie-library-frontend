@@ -24,7 +24,7 @@ const Home = () => {
       if (user) {
         try {
           const response = await axios.get(
-            "http://localhost:5000/api/playlists",
+            "https://movie-library-backend-jseh.onrender.com/api/playlists",
             {
               headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -50,7 +50,7 @@ const Home = () => {
     if (!user) return;
 
     try {
-      const response = await axios.get("http://localhost:5000/api/playlists", {
+      const response = await axios.get("https://movie-library-backend-jseh.onrender.com/api/playlists", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -64,7 +64,7 @@ const Home = () => {
       if (isDuplicate) {
         setNotification(`"${movie.Title}" is already in your playlist.`);
       } else {
-        await axios.post("http://localhost:5000/api/playlists", movie, {
+        await axios.post("https://movie-library-backend-jseh.onrender.com/api/playlists", movie, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
