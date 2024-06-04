@@ -7,6 +7,7 @@ import "./Playlist.css";
 const Playlist = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
+  const [removingMovieId, setRemovingMovieId] = useState(null);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -37,16 +38,23 @@ const Playlist = () => {
     );
     if (!confirmed) return;
 
+    setRemovingMovieId(imdbID);
+
     try {
-      await axios.delete(`https://movie-library-backend-jseh.onrender.com/api/playlists/${imdbID}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      await axios.delete(
+        `https://movie-library-backend-jseh.onrender.com/api/playlists/${imdbID}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       setMovies(movies.filter((movie) => movie.imdbID !== imdbID));
     } catch (err) {
       console.error("Error deleting movie from playlist:", err);
       setError("Failed to delete movie. Please try again later.");
+    } finally {
+      setRemovingMovieId(null);
     }
   };
 
@@ -67,9 +75,17 @@ const Playlist = () => {
               <img src={movie.poster} alt={movie.title} />
               <h3>{movie.title}</h3>
               <h3>{movie.year}</h3>
-              <button className="delete-icon" onClick={() => handleDelete(movie.imdbID, movie.title)}>
-              <box-icon name="trash" type="solid" color="#fff"></box-icon>
-            </button>
+              <button
+                className="delete-icon"
+                onClick={() => handleDelete(movie.imdbID, movie.title)}
+                disabled={removingMovieId === movie.imdbID}
+              >
+                {removingMovieId === movie.imdbID ? (
+                  "..."
+                ) : (
+                  <box-icon name="trash" type="solid" color="#fff"></box-icon>
+                )}
+              </button>
             </div>
           ))}
         </div>

@@ -9,6 +9,7 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [notification, setNotification] = useState("");
   const [playlistMovies, setPlaylistMovies] = useState([]);
+  const [loadingMovieId, setLoadingMovieId] = useState(null);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -49,6 +50,8 @@ const Home = () => {
   const addToPlaylist = async (movie) => {
     if (!user) return;
 
+    setLoadingMovieId(movie.imdbID);
+
     try {
       const response = await axios.get("https://movie-library-backend-jseh.onrender.com/api/playlists", {
         headers: {
@@ -70,12 +73,14 @@ const Home = () => {
           },
         });
         setNotification(`Added "${movie.Title}" to playlist.`);
-        setPlaylistMovies([...playlistMovies, movie]); 
+        setPlaylistMovies([...playlistMovies, movie]);
       }
 
       setTimeout(() => setNotification(""), 3000);
     } catch (err) {
       console.error("Error adding to playlist:", err);
+    } finally {
+      setLoadingMovieId(null);
     }
   };
 
@@ -111,8 +116,13 @@ const Home = () => {
                 <button
                   className="add-to-playlist"
                   onClick={() => addToPlaylist(movie)}
+                  disabled={loadingMovieId === movie.imdbID}
                 >
-                  {isInPlaylist(movie) ? "✓" : "+"}
+                  {loadingMovieId === movie.imdbID
+                    ? "..."
+                    : isInPlaylist(movie)
+                    ? "✓"
+                    : "+"}
                 </button>
               )}
             </div>
