@@ -6,6 +6,7 @@
   margin-bottom: 3rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .home input[type="text"],
@@ -20,6 +21,7 @@
   flex: 1;
   margin-right: 20px;
   background-color: #f0f0f0;
+  min-width: 0;
 }
 
 .home button {
@@ -102,6 +104,22 @@
 }
 
 @media screen and (max-width: 768px) {
+  .home form {
+    flex-direction: column;
+  }
+
+  .home input[type="text"] {
+    margin-right: 35px;
+    margin-bottom: 10px;
+    width: 90%;
+  }
+
+  .home button {
+    width: 100%;
+    margin-top: 0;
+    margin-right: 40px;
+  }
+
   .home .movie-list {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }

@@ -6,19 +6,19 @@ import "./Login.css"
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // State to track loading
+  const [isLoading, setIsLoading] = useState(false);
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true); // Set loading state to true when submitting
+    setIsLoading(true);
     try {
       await login(username, password);
       navigate('/');
     } catch (error) {
       console.error("Login error:", error);
-      setIsLoading(false); // Reset loading state if login fails
+      setIsLoading(false);
     }
   };
 
@@ -32,7 +32,7 @@ const Login = () => {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           className='text-input'
-          disabled={isLoading} // Disable input during loading
+          disabled={isLoading}
         />
         <input
           type="password"
@@ -40,10 +40,10 @@ const Login = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className='text-input'
-          disabled={isLoading} // Disable input during loading
+          disabled={isLoading}
         />
         <button type="submit" className="button" disabled={isLoading}>
-          {isLoading ? 'Logging in...' : 'Login'} {/* Display loading text or 'Login' */}
+          {isLoading ? 'Logging in...' : 'Login'}
         </button>
       </form>
       <div>
