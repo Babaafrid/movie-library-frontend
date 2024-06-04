@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+<h1>Movie Library Web Application</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>Overview</h2>
+<p>This Movie Library Web Application allows users to search for movies, view their details, and create movie lists. Users can sign up and log in to manage their movie lists. The application uses the OMDB API to fetch movie details.</p>
 
-## Available Scripts
+<h2>Features</h2>
+<ul>
+  <li>User Authentication
+    <ul>
+      <li>Sign In / Sign Up functionality.</li>
+    </ul>
+  </li>
+  <li>Movie Search
+    <ul>
+      <li>Search for movies using the OMDB API and view detailed information about each movie.</li>
+    </ul>
+  </li>
+  <li>Movie Lists
+    <ul>
+      <li>Save movies to the movie lists.</li>
+    </ul>
+  </li>
+</ul>
 
-In the project directory, you can run:
+<h2>Tech Stack</h2>
+<ul>
+  <li>Frontend: React.js</li>
+  <li>Backend: Node.js with Express</li>
+  <li>Database: MongoDB</li>
+  <li>Authentication: JWT (JSON Web Tokens)</li>
+  <li>API: OMDB API</li>
+  <li>Hosting: Netlify (Frontend), Render (Backend)</li>
+</ul>
 
-### `npm start`
+<h2>Installation</h2>
+<h3>Prerequisites</h3>
+<ul>
+  <li>Node.js and npm installed</li>
+  <li>MongoDB instance running</li>
+  <li>OMDB API key (sign up at OMDB API to get a free API key)</li>
+</ul>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h3>Steps to Run</h3>
+<h4>Backend Setup</h4>
+<ol>
+  <li>Clone the backend repository
+    <code>git clone https://github.com/Babaafrid/movie-library-backend</code>
+  </li>
+  <li>Install dependencies
+    <code>npm install</code>
+  </li>
+  <li>Create a <code>.env</code> file in the backend directory and add the following environment variables:
+    <br> <br>
+    <pre>MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret</pre>
+  </li>
+  <li>Start the backend server
+    <code>node server.js</code>
+  </li>
+</ol>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<h4>Frontend Setup</h4>
+<ol>
+  <li>Clone the frontend repository
+    <code>git clone https://github.com/Babaafrid/movie-library-frontend</code>
+  </li>
+  <li>Install dependencies
+    <code>npm install</code>
+  </li>
+  <li>Start the frontend server
+    <code>npm start</code>
+  </li>
+</ol>
 
-### `npm test`
+<h3>Access the Application</h3>
+<p>Open your browser and go to <a href="http://localhost:3000">http://localhost:3000</a></p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h2>Hosting</h2>
+<p>The application is hosted on Netlify. Access it <a href="https://dev-movie-library.netlify.app/">https://dev-movie-library.netlify.app/</a></p>
 
-### `npm run build`
+<h2>License</h2>
+<p>This project is licensed under the MIT License.</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h2>Acknowledgements</h2>
+<ul>
+  <li>OMDB API for movie data</li>
+  <li>React</li>
+  <li>Node.js</li>
+  <li>Express</li>
+  <li>MongoDB</li>
+  <li>JWT</li>
+</ul>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2>Contact</h2>
+<p>For any queries, please contact <a href="mailto:babaafrid7@gmail.com">babaafrid7@gmail.com</a>.</p>
